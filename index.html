@@ -1,0 +1,158 @@
+<!-- <link rel="stylesheet" href="style.css"> -->
+
+<!-- 
+<h1 class="my-heading emphasis">
+    This is my first webpage.</h1>
+
+<h2 style="background-color:rgb(168, 190, 232)">A book: Ikigai.</h2>
+
+<p style="background-color:rgb(197, 240, 197);">The japanese secret to a long and happy life. Ikigai means a reason for being, a thing that gets you up in the morning.</p>
+
+<img class="text-center" style="width:600px" src="ikigai.png" 
+alt="How to find ikigai">
+<p></p>
+<a href="about.html">About</a> 
+
+
+
+<!-- <h1 class="text-center">Hey there</h1>
+<p>Trying CSS for first time, and here we are learning Css Selectors</p>
+<ul>
+    <li>The element selector</li>
+    <li>The Id selector</li>
+    <li>The class selector</li>
+</ul>
+
+<!-- <link rel="stylesheet" href="style.css">
+<p id="testid" >
+    <span class="para">Everything always works out in my favour</span>
+    Hi i am sania</p> -->
+
+<!--     
+    <p>I am learning JS</p>
+    <script src="main.js">
+    </script> -->
+
+<!-- <input type="text" id="name" name="name">
+<label for="name">User Name:</label>
+
+<input type="checkbox" id="checkbox" name="checkbox">
+<label for="checkbox">Yes</label>
+
+<input type="radio" id="radio" name="radio" value="true">
+<label for="radio">True</label>
+<button type="submit">Submit</button> -->
+
+
+
+<!-- <form action="http://www.google.com" method="GET">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="John Doe">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="john.doe@email.com">
+    <button type="submit">Submit</button>
+  </form> -->
+
+  <!-- <form action="http://www.google.com" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="John Doe">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="john.doe@email.com">
+    <button type="submit">Submit</button>
+  </form>
+   -->
+
+   <link rel="stylesheet" href="index.css"
+   <!DOCTYPE html>
+   <html>
+   <head>
+     <title>Registration Form</title>
+     <style>
+       .error {
+         color: red;
+       }
+     </style>
+   </head>
+   <body>
+   
+   <h2>Registration Form</h2>
+   
+   <form id="registrationForm">
+     <label for="name">Name:</label>
+     <input type="text" id="name" name="name" required><br>
+   
+     <label for="email">Email:</label>
+     <input type="email" id="email" name="email" required><br>
+   
+     <label for="password">Password:</label>
+     <input type="password" id="password" name="password" required><br>
+   
+     <label for="dob">Date of Birth:</label>
+     <input type="date" id="dob" name="dob" required><br>
+     <span id="dobError" class="error"></span><br>
+   
+     <label for="acceptTerms">Accept Terms:</label>
+     <input type="checkbox" id="acceptTerms" name="acceptTerms" required><br>
+   
+     <button type="submit">Register</button>
+   </form>
+   
+   <hr>
+   
+   <h2>Entries</h2>
+   
+   <table border="1">
+     <thead>
+       <tr>
+         <th>Name</th>
+         <th>Email</th>
+         <th>Password</th>
+         <th>Date of Birth</th>
+         <th>Accepted Terms?</th>
+       </tr>
+     </thead>
+     <tbody id="entriesTableBody">
+     </tbody>
+   </table>
+   
+   <script>
+     const registrationForm = document.getElementById('registrationForm');
+     const dobInput = document.getElementById('dob');
+     const dobError = document.getElementById('dobError');
+     const entriesTableBody = document.getElementById('entriesTableBody');
+   
+     registrationForm.addEventListener('submit', function(event) {
+       const dobValue = new Date(dobInput.value);
+       const currentDate = new Date();
+       const minDate = new Date(currentDate.getFullYear() - 55, currentDate.getMonth(), currentDate.getDate());
+       const maxDate = new Date(currentDate.getFullYear() - 18, currentDate.getMonth(), currentDate.getDate());
+   
+       if (dobValue < minDate || dobValue > maxDate) {
+         dobError.textContent = 'Date of birth must be between 18 and 55 years ago.';
+         event.preventDefault();
+       } else {
+         dobError.textContent = '';
+   
+         // Add entry to the table
+         const name = document.getElementById('name').value;
+         const email = document.getElementById('email').value;
+         const password = document.getElementById('password').value;
+         const dob = dobValue.toDateString();
+         const acceptTerms = document.getElementById('acceptTerms').checked;
+   
+         const newRow = entriesTableBody.insertRow();
+         newRow.insertCell().textContent = name;
+         newRow.insertCell().textContent = email;
+         newRow.insertCell().textContent = password;
+         newRow.insertCell().textContent = dob;
+         newRow.insertCell().textContent = acceptTerms ? 'Yes' : 'No';
+   
+         // Clear form inputs
+         registrationForm.reset();
+       }
+     });
+   </script>
+   
+   </body>
+   </html>
+   
